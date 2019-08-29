@@ -1,4 +1,5 @@
 import time
+#Estrutura do processo
 class Processo(object):
         def __init__(self, id, tempo, pagina):
             self.id = id
@@ -13,19 +14,7 @@ class Processo(object):
         
         def getPagina(self):
             return self.pagina
-        
-class Fila(object):
-        def __init__(self):
-            self.dados = []
- 
-        def insere(self, elemento):
-            self.dados.append(elemento)
- 
-        def retira(self):
-            return self.dados.pop(0)
- 
-        def vazia(self):
-            return len(self.dados) == 0
+
         
 # entradas: uma fila de processos e um quantum
 def roundRobin(fila, qt):
@@ -122,14 +111,15 @@ if __name__ == "__main__":
         #calculando  
         tempoTotal = tempoTotal - i
         tempoMedio = tempoTotal/len(tempoEspera)
-
+        #criando cópias da lista de processos
         fila2 = fila.copy()
         fila3 = fila.copy()
         
+        #executando os algoritmos
         fifo(fila)
-        roundRobin(fila2, 4)
-        multilevel(fila3,4)
-        
+        roundRobin(fila2,5)
+        multilevel(fila3,5)
+        print("----------- RESULTADOS -----------")
         print("Tempo total esperado = ", tempoTotal)
         print("Tempo médio esperado = ", tempoMedio)
 
