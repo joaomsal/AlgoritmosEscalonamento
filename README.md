@@ -1,1 +1,1 @@
-# AlgoritmosEscolnamento
+# Algoritmos de Escalonamento
