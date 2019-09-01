@@ -1,6 +1,6 @@
 import time
 import lru as LRU
-
+import filaCircular as FC
 #APRESENTAÇÃO
 def apresentacao():
         print("-----------------------------")
@@ -180,5 +180,7 @@ if __name__ == "__main__":
 	#FIFO
 	#fifo(processos, paginas)
 	#LRU
-	output = LRU.startProcessing(frames20, processos, paginas)
-	print(output)
+	#output = LRU.startProcessing(frames20, processos, paginas)
+	#print(output)
+
+	clock = FC.filaCircular(paginas,processos)
