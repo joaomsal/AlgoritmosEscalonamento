@@ -1,6 +1,7 @@
 import time
 import lru as LRU
 import optimal as OPTIMAL
+import filaCircular as FC
 
 #APRESENTAÇÃO
 def apresentacao():
@@ -181,6 +182,7 @@ if __name__ == "__main__":
 	#FIFO
 	#fifo(processos, paginas)
 	#LRU
+
 	print("LRU")
 	output = LRU.startProcessing(frames30, processos, paginas)
 	print(output)
@@ -190,4 +192,10 @@ if __name__ == "__main__":
 	print("ótimo")
 	output2 = OPTIMAL.startProcessing(frames30, processos)
 	print(output2)
+
+
+	#output = LRU.startProcessing(frames20, processos, paginas)
+	#print(output)
+
+	clock = FC.filaCircular(paginas,processos)
 
