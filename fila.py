@@ -176,11 +176,11 @@ if __name__ == "__main__":
 	pg1 = paginas.copy()
 	pg2 = paginas.copy()
 	#ROUND-ROIBN
-	#roundRobin(processos,paginas)
+	roundRobin(processos,paginas)
 	#MULTILEVEL
-	#multilevel(processos,paginas)
+	multilevel(processos,paginas)
 	#FIFO
-	#fifo(processos, paginas)
+	fifo(processos, paginas)
 	#LRU
 
 	print("LRU")
@@ -193,9 +193,6 @@ if __name__ == "__main__":
 	output2 = OPTIMAL.startProcessing(frames30, processos)
 	print(output2)
 
-
-	#output = LRU.startProcessing(frames20, processos, paginas)
-	#print(output)
-
+	print("CLOCK -----------------")
 	clock = FC.filaCircular(paginas,processos)
 
