@@ -1,9 +1,6 @@
-import time
-import fila as FL
 from multiprocessing import Process
 
-tt = 0
-
+# INICIALIZA TODAS AS PÁGINAS COM BIT 0
 def inicializaPaginas(paginas):
     pages = []
     for p in paginas:
@@ -13,7 +10,7 @@ def inicializaPaginas(paginas):
         pages.append(aux)
 
     return pages
-
+# PEGA O TEMPO DA PÁGINA DA ENTRADA
 def getTempo(tp):
 	if tp !=[]:
 		aux = tp.split(":")
@@ -24,6 +21,7 @@ def getTempo(tp):
 		else:
 			return 0
 
+# PEGA A PÁGINA DA ENTRADA
 def getPage(tp):
 	if len(tp) > 0:
 		aux = tp.split(":")
@@ -34,7 +32,7 @@ def getPage(tp):
 		return int(p)
 	else:
 		return 0
-
+# VERIFICA SE A DISPONIBILIDADE DE P EM PAGES
 def alcoc(p, pages):
     for i in pages:
         if i[0] == p[0]:
@@ -55,7 +53,6 @@ def filaCircular(paginas, processo):
                 if pg0 != ' ':
                     p[1] = True
                     p[0] = getPage(pg0)
-                    time.sleep(getTempo(pg0)/1000000)
                     print("Executando o processo (", processo.getId(), ") \n")
             else: 
                 p[1] = False 
@@ -71,8 +68,5 @@ def filaCircular(paginas, processo):
 def inicia(processos, paginas):
     print(len(processos))
     for p in processos:
-        print(len(p.getPages()))
-		#Process(target= , args=(paginas, p)).start()
-        #print("T = ", tt)
-        x = Process(target=filaCircular, args=(paginas, p)).start()
+        Process(target=filaCircular, args=(paginas, p)).start()
                                    
